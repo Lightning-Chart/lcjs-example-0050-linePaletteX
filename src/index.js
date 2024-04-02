@@ -15,7 +15,7 @@ const axisX = chart.getDefaultAxisX().setTickStrategy(AxisTickStrategies.Time)
 
 const axisY = chart.getDefaultAxisY().setTitle('mV')
 
-fetch(document.head.baseURI + 'examples/assets/0050/data.json')
+fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'examples/assets/0050/data.json')
     .then((r) => r.json())
     .then((ecgValuesY) => {
         const lineSeries = chart
