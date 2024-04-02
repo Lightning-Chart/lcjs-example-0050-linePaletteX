@@ -7,7 +7,7 @@ const { lightningChart, PalettedFill, LUT, ColorRGBA, AxisTickStrategies, Themes
 
 const chart = lightningChart()
     .ChartXY({
-        theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined
+        theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
     })
     .setTitle('ECG chart with color highlighted heart beats')
 
