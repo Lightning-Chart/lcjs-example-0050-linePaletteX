@@ -2,7 +2,7 @@
  * Example showcasing Line Series feature for coloring line dynamically based on X coordinates
  */
 
-const lcjs = require('@arction/lcjs')
+const lcjs = require('@lightningchart/lcjs')
 const { lightningChart, PalettedFill, LUT, ColorRGBA, AxisTickStrategies, Themes } = lcjs
 
 const chart = lightningChart({
@@ -57,7 +57,7 @@ fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pat
         // Style line series so that beat X ranges are highlighted with a special color.
         const colorDefault = lineSeries.getStrokeStyle().getFillStyle().getColor()
         const colorNormal = colorDefault
-        const colorHighlight = new ColorRGBA(0, 255, 0)
+        const colorHighlight = ColorRGBA(0, 255, 0)
         const xPalette = new PalettedFill({
             lookUpProperty: 'x',
             lut: new LUT({
