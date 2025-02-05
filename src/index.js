@@ -3,7 +3,7 @@
  */
 
 const lcjs = require('@lightningchart/lcjs')
-const { lightningChart, PalettedFill, LUT, ColorRGBA, AxisTickStrategies, Themes } = lcjs
+const { lightningChart, emptyFill, PalettedFill, LUT, ColorRGBA, AxisTickStrategies, Themes } = lcjs
 
 const chart = lightningChart({
             resourcesBaseUrl: new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'resources/',
@@ -21,12 +21,11 @@ fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pat
     .then((r) => r.json())
     .then((ecgValuesY) => {
         const lineSeries = chart
-            .addLineSeries({
-                dataPattern: {
-                    pattern: 'ProgressiveX',
-                },
+            .addPointLineAreaSeries({
+                dataPattern: 'ProgressiveX',
             })
-            .addArrayY(ecgValuesY)
+            .setAreaFillStyle(emptyFill)
+            .appendSamples({ yValues: ecgValuesY })
 
         // Detect beats from ECG data set, listing the ranges as X coordinates (data point indexes).
         const beats = []
