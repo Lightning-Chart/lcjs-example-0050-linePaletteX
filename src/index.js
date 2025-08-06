@@ -9,6 +9,7 @@ const chart = lightningChart({
             resourcesBaseUrl: new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'resources/',
         })
     .ChartXY({
+        legend: { visible: false },
         theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
     })
     .setTitle('ECG chart with color highlighted heart beats')
@@ -20,12 +21,7 @@ const axisY = chart.getDefaultAxisY().setTitle('mV')
 fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'examples/assets/0050/data.json')
     .then((r) => r.json())
     .then((ecgValuesY) => {
-        const lineSeries = chart
-            .addPointLineAreaSeries({
-                dataPattern: 'ProgressiveX',
-            })
-            .setAreaFillStyle(emptyFill)
-            .appendSamples({ yValues: ecgValuesY })
+        const lineSeries = chart.addLineSeries().appendSamples({ yValues: ecgValuesY })
 
         // Detect beats from ECG data set, listing the ranges as X coordinates (data point indexes).
         const beats = []
