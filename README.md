@@ -30,7 +30,7 @@ The example code automatically detects heart beats from the data set and tracks 
 
 [//]: # 'IMPORTANT: The assets will not show before README.md is built - relative path is different!'
 
-![](./assets/picture1.jpg)
+![Picture 1](./assets/picture1.jpg)
 
 This heart beat information is then used to prepare a _Value - Color lookup table_, a conceptually simple object that can be widely used with many different LightningChart JS components.
 
@@ -38,7 +38,7 @@ The lookup table associates a range of _Values_ with corresponding _Colors_. In 
 
 [//]: # 'IMPORTANT: The assets will not show before README.md is built - relative path is different!'
 
-![](./assets/picture2.jpg)
+![Picture 2](./assets/picture2.jpg)
 
 Dynamic line coloring is a powerful feature which can serve many different needs. The best thing about it is that it doesn't compromise performance, meaning that you can use it just as well with 100 data points or 100 million data points.
 
